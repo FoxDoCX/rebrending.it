@@ -65,9 +65,7 @@ body::before {
 }
 
 .brand,
-.site-nav a,
-.button,
-.source-list a {
+.site-nav a {
   text-decoration: none;
 }
 
@@ -108,7 +106,7 @@ body::before {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.45fr 0.95fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: 24px;
   align-items: stretch;
   margin-bottom: 24px;
@@ -118,7 +116,10 @@ body::before {
 .hero-card,
 .stats,
 .section,
-.disclaimer-box {
+.disclaimer-box,
+.device-frame,
+.video-card,
+.media-note {
   border: 1px solid var(--line);
   border-radius: 32px;
   background: var(--surface);
@@ -128,6 +129,28 @@ body::before {
 
 .hero-copy {
   padding: 56px;
+}
+
+.hero-visual {
+  display: grid;
+  gap: 18px;
+}
+
+.device-frame {
+  display: grid;
+  place-items: center;
+  min-height: 420px;
+  padding: 26px;
+  background: linear-gradient(145deg, rgba(240, 255, 252, 0.9), rgba(227, 245, 244, 0.95));
+}
+
+.device-frame img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 40px rgba(14, 68, 70, 0.18));
 }
 
 .eyebrow {
@@ -160,7 +183,7 @@ h1 {
 .project p,
 .timeline-item p,
 .disclaimer-box p,
-.source-list a {
+.media-note p {
   color: var(--muted);
   font-size: 1.03rem;
   line-height: 1.7;
@@ -171,43 +194,26 @@ h1 {
   margin: 22px 0 0;
 }
 
-.hero-actions {
+.hero-facts {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 28px;
+  gap: 10px;
+  margin-top: 26px;
 }
 
-.button {
+.hero-facts span,
+.tag {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50px;
-  padding: 0 22px;
+  padding: 9px 14px;
   border-radius: 999px;
+  background: rgba(0, 122, 120, 0.12);
+  color: var(--accent-dark);
+  font-size: 0.86rem;
   font-weight: 700;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.button:hover,
-.source-list a:hover {
-  transform: translateY(-2px);
-}
-
-.button-primary {
-  background: var(--accent);
-  color: #f6ffff;
-}
-
-.button-secondary {
-  border: 1px solid var(--line);
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.45);
 }
 
 .hero-card {
-  padding: 32px;
-  align-self: end;
+  padding: 28px;
 }
 
 .hero-card-label {
@@ -226,6 +232,39 @@ h1 {
   gap: 14px;
   color: var(--ink);
   line-height: 1.6;
+}
+
+.media-section {
+  padding-bottom: 30px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 18px;
+}
+
+.video-card {
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border: 0;
+  background: linear-gradient(135deg, #dff3f1, #f5fffe);
+}
+
+.media-note {
+  padding: 28px;
+}
+
+.media-note strong {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 1.2rem;
 }
 
 .stats {
@@ -267,8 +306,7 @@ h2 {
 
 .about-grid,
 .cards,
-.project-list,
-.source-list {
+.project-list {
   display: grid;
   gap: 18px;
 }
@@ -299,14 +337,7 @@ h3 {
 }
 
 .tag {
-  display: inline-flex;
   margin-bottom: 16px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(0, 122, 120, 0.12);
-  color: var(--accent-dark);
-  font-size: 0.84rem;
-  font-weight: 700;
 }
 
 .timeline {
@@ -347,33 +378,13 @@ h3 {
   background: linear-gradient(135deg, rgba(255, 250, 242, 0.96), rgba(236, 248, 247, 0.96));
 }
 
-.source-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.source-list a {
-  display: flex;
-  align-items: center;
-  min-height: 88px;
-  padding: 20px 22px;
-  border-radius: 22px;
-  background: var(--surface-strong);
-  border: 1px solid rgba(18, 50, 51, 0.08);
-  color: var(--ink);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.source-list a:hover {
-  border-color: rgba(0, 122, 120, 0.35);
-}
-
 @media (max-width: 940px) {
   .hero,
   .about-grid,
   .cards,
   .project-list,
   .stats,
-  .source-list {
+  .media-grid {
     grid-template-columns: 1fr;
   }
 
@@ -388,7 +399,8 @@ h3 {
   }
 
   .section,
-  .disclaimer-box {
+  .disclaimer-box,
+  .media-note {
     padding: 24px;
   }
 }
@@ -407,22 +419,18 @@ h3 {
     font-size: 2.5rem;
   }
 
-  .hero-actions,
   .timeline-item {
     grid-template-columns: 1fr;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .button,
-  .source-list a {
-    width: 100%;
-  }
-
-  .timeline-item {
     gap: 14px;
+  }
+
+  .device-frame {
+    min-height: 300px;
+    padding: 18px;
+  }
+
+  .video-card,
+  .video-card iframe {
+    min-height: 260px;
   }
 }
