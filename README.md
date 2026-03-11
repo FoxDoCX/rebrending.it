@@ -1,27 +1,26 @@
-﻿# Сайт-визитка
+﻿# ROFES E01C
 
-Готовый статический сайт для публикации через GitHub Pages.
+Одностраничный информационный сайт об аппаратно-программном комплексе ROFES E01C.
 
-## Что нужно заменить
+## Что внутри
 
-- Название бренда и тексты в `index.html`
-- Контакты в блоке `#contact`
-- При желании цвета и отступы в `styles.css`
+- обзор назначения комплекса
+- описание того, что оценивает ROFES
+- принцип работы и сценарий использования
+- сферы применения
+- совместимость, ограничения и гарантия
+- блок с официальными источниками
 
-## Как опубликовать на GitHub Pages
+## Источники
 
-```powershell
-git add .
-git commit -m "Add business card website"
-git branch -M main
-git remote add origin https://github.com/FoxDoCX/my-project-one.git
-git push -u origin main
-```
+Материал для сайта собран и пересказан по официальным страницам:
 
-После push откройте на GitHub `Settings -> Pages`, выберите `Deploy from a branch`, затем `main` и папку `/ (root)`.
+- https://rofes.ru/
+- https://rofes.ru/teh-podderjka/
+- https://rofes.ru/garantiya/
+- https://rofes.ru/obuchenie/
+- https://rofes.ru/pravovaya-informaciya/
 
-Ожидаемый адрес сайта:
+## Важно
 
-```text
-https://foxdocx.github.io/my-project-one/
-```
+На официальном сайте указано, что ROFES не является диагностическим или медицинским прибором. Этот проект сделан как ознакомительная страница.
