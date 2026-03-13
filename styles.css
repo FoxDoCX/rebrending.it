@@ -117,8 +117,9 @@ h3,
 
 .brand {
   color: var(--text);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  font-weight: 800;
 }
 
 .site-nav {
@@ -235,8 +236,8 @@ main {
 .proof-strip span,
 .case-tag {
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  font-size: 0.94rem;
   font-weight: 800;
 }
 
@@ -245,7 +246,7 @@ main {
 .result-label,
 .contact-label,
 .proof-strip span {
-  color: var(--signal);
+  color: #d58d1a;
 }
 
 h1 {
@@ -304,8 +305,8 @@ h1 {
 .case-tag {
   display: inline-flex;
   align-items: center;
-  min-height: 38px;
-  padding: 0 14px;
+  min-height: 40px;
+  padding: 0 16px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
@@ -508,8 +509,11 @@ h3 {
 .service-kicker {
   display: inline-block;
   margin-bottom: 14px;
-  color: var(--signal);
-  font-size: 0.78rem;
+  color: #d58d1a;
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .service-card-dark {
@@ -606,11 +610,13 @@ select {
 .result-badge {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 0 12px;
+  min-height: 38px;
+  padding: 0 14px;
   border-radius: 999px;
   color: var(--accent-deep);
-  background: rgba(13, 163, 114, 0.1);
+  font-size: 0.92rem;
+  font-weight: 800;
+  background: rgba(13, 163, 114, 0.12);
 }
 
 #total-price {
@@ -850,6 +856,8 @@ select {
     height: 56px;
   }
 }
+
+
 
 
 
