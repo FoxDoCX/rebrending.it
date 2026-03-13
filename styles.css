@@ -26,7 +26,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 132px;
+  scroll-padding-top: 172px;
 }
 
 body {
@@ -170,7 +170,7 @@ main {
 }
 
 main > section[id] {
-  scroll-margin-top: 132px;
+  scroll-margin-top: 172px;
 }
 
 .hero,
@@ -861,6 +861,7 @@ select {
     height: 56px;
   }
 }
+
 
 
 
