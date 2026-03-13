@@ -7,14 +7,43 @@
       }
     });
   },
-  { threshold: 0.15 }
+  { threshold: 0.14 }
 );
 
 document
-  .querySelectorAll(".hero, .signal-strip, .section, .cta-band")
+  .querySelectorAll(".hero, .proof-strip, .section, .cta-section")
   .forEach((element) => revealObserver.observe(element));
 
 const outputs = document.querySelectorAll("[data-output-for]");
+const calculator = document.getElementById("price-calculator");
+const totalPrice = document.getElementById("total-price");
+const breakdown = document.getElementById("breakdown");
+const currencyFormatter = new Intl.NumberFormat("ru-RU");
+
+const tierConfig = {
+  base: {
+    label: "Базовый формат поддержки",
+    fee: 18000,
+    workplaceRate: 650,
+    serverRate: 2600,
+  },
+  business: {
+    label: "Бизнес-поддержка",
+    fee: 32000,
+    workplaceRate: 820,
+    serverRate: 3400,
+  },
+  critical: {
+    label: "Критичный SLA",
+    fee: 52000,
+    workplaceRate: 980,
+    serverRate: 4700,
+  },
+};
+
+function formatRubles(value) {
+  return `${currencyFormatter.format(Math.round(value))} ₽`;
+}
 
 function updateRangeOutputs() {
   outputs.forEach((output) => {
@@ -23,22 +52,6 @@ function updateRangeOutputs() {
       output.textContent = input.value;
     }
   });
-}
-
-const currencyFormatter = new Intl.NumberFormat("ru-RU");
-
-const calculator = document.getElementById("price-calculator");
-const totalPrice = document.getElementById("total-price");
-const breakdown = document.getElementById("breakdown");
-
-const tierConfig = {
-  base: { label: "Базовый формат поддержки", fee: 18000, workplaceRate: 650, serverRate: 2600 },
-  business: { label: "Бизнес-поддержка", fee: 32000, workplaceRate: 820, serverRate: 3400 },
-  critical: { label: "Критичный SLA", fee: 52000, workplaceRate: 980, serverRate: 4700 },
-};
-
-function formatRubles(value) {
-  return `${currencyFormatter.format(Math.round(value))} ₽`;
 }
 
 function createBreakdownRow(label, value) {
@@ -92,23 +105,23 @@ function updateCalculator() {
 
   if (security) {
     lineItems.push({
-      label: "ИТ-безопасность и контроль резервных копий",
+      label: "ИТ-безопасность и резервные копии",
       value: 18000,
     });
   }
 
-  let subtotal = lineItems.reduce((sum, item) => sum + item.value, 0);
+  let total = lineItems.reduce((sum, item) => sum + item.value, 0);
 
   if (afterHours) {
-    const surcharge = subtotal * 0.5;
+    const surcharge = total * 0.5;
     lineItems.push({
-      label: "Надбавка за нерабочее время",
+      label: "Надбавка за поддержку вне рабочего времени",
       value: surcharge,
     });
-    subtotal += surcharge;
+    total += surcharge;
   }
 
-  totalPrice.textContent = formatRubles(subtotal);
+  totalPrice.textContent = formatRubles(total);
   breakdown.replaceChildren(...lineItems.map((item) => createBreakdownRow(item.label, item.value)));
 }
 
