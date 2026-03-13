@@ -17,7 +17,7 @@
   --radius-xl: 36px;
   --radius-lg: 26px;
   --radius-md: 18px;
-  --content: min(1240px, calc(100% - 32px));
+  --content: min(1320px, calc(100% - 40px));
 }
 
 * {
@@ -187,7 +187,7 @@ main {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.94fr);
+  grid-template-columns: minmax(0, 1.22fr) minmax(320px, 0.78fr);
   gap: 22px;
   align-items: stretch;
   padding-top: 22px;
@@ -251,9 +251,10 @@ main {
 
 h1 {
   margin: 0;
-  max-width: 12ch;
-  font-size: clamp(3rem, 6.2vw, 5.8rem);
-  line-height: 0.94;
+  max-width: 9.5ch;
+  font-size: clamp(2.8rem, 4.6vw, 4.9rem);
+  line-height: 0.98;
+  text-wrap: balance;
 }
 
 .hero-text,
@@ -271,9 +272,9 @@ h1 {
 }
 
 .hero-text {
-  max-width: 62ch;
+  max-width: 60ch;
   margin: 22px 0 0;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .hero-actions {
@@ -320,9 +321,10 @@ h1 {
 
 .hero-banner h2 {
   margin: 12px 0 14px;
-  max-width: 12ch;
-  font-size: clamp(1.9rem, 4vw, 3rem);
-  line-height: 1.02;
+  max-width: 11ch;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+  line-height: 1.08;
+  text-wrap: balance;
 }
 
 .hero-banner p {
@@ -808,3 +810,5 @@ select {
     height: 56px;
   }
 }
+
+
